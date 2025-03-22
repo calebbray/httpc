@@ -10,7 +10,8 @@ typedef struct Server {
 } server_t;
 
 void init_server(server_t *server, int port);
-void listen_and_serve(server_t *server, int client_socket);
+void listen_and_serve(server_t *server, int client_socket,
+                      void *(handler)(int));
 void deinit_server(server_t *server);
 
 #endif

@@ -5,7 +5,6 @@
 #include <sys/socket.h>
 #include <unistd.h>
 
-#include "../include/http.h"
 #include "../include/server.h"
 
 void init_server(server_t *server, int port) {
@@ -42,7 +41,8 @@ void init_server(server_t *server, int port) {
   }
 }
 
-void listen_and_serve(server_t *server, int client_socket) {
+void listen_and_serve(server_t *server, int client_socket,
+                      void *(handler)(int)) {
   while (1) {
     // Accept client connections
     client_socket =
@@ -53,7 +53,7 @@ void listen_and_serve(server_t *server, int client_socket) {
       continue;
     }
 
-    handle_client(client_socket);
+    handler(client_socket);
     close(client_socket);
   }
 }
