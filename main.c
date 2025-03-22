@@ -1,5 +1,5 @@
 
-#include "server.h"
+#include "include/server.h"
 #include <stdio.h>
 
 #define PORT 8080

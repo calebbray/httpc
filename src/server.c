@@ -5,8 +5,8 @@
 #include <sys/socket.h>
 #include <unistd.h>
 
-#include "http.h"
-#include "server.h"
+#include "../include/http.h"
+#include "../include/server.h"
 
 void init_server(server_t *server, int port) {
   int server_fd;
