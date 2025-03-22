@@ -1,6 +1,6 @@
 build:
-	@gcc server.c http.c main.c -o main
+	@gcc server.c http.c main.c -o target/main
 
 run: build
-	@./main
+	@./target/main
 
